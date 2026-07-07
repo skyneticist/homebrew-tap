@@ -5,41 +5,45 @@
 class Depbisect < Formula
   desc "git bisect, but for dependency updates"
   homepage "https://github.com/skyneticist/depbisect"
-  version "0.1.3"
+  version "0.1.5"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/skyneticist/depbisect/releases/download/v0.1.3/depbisect_0.1.3_darwin_amd64.tar.gz"
-      sha256 "6ddc7b9eb24afa36d665a90c2009d8b3c3d32041d0d36a634c33d91d0b7e9df3"
+      url "https://github.com/skyneticist/depbisect/releases/download/v0.1.5/depbisect_0.1.5_darwin_amd64.tar.gz"
+      sha256 "30ab7511273834682219a3e377d1c9e8ac27a32a1318080232458b9b2d1a71be"
 
       define_method(:install) do
         bin.install "depbisect"
+        generate_completions_from_executable(bin/"depbisect", "completion", shells: [:bash, :zsh])
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/skyneticist/depbisect/releases/download/v0.1.3/depbisect_0.1.3_darwin_arm64.tar.gz"
-      sha256 "f8d2722b9bcc3165806659dd74fa2ce9bc10d363a5c77ce594e2e119e3e4de17"
+      url "https://github.com/skyneticist/depbisect/releases/download/v0.1.5/depbisect_0.1.5_darwin_arm64.tar.gz"
+      sha256 "beefd54bb018e5487df33da553ffc413d9ef8f1a2641cf7d71d4c091a75677b5"
 
       define_method(:install) do
         bin.install "depbisect"
+        generate_completions_from_executable(bin/"depbisect", "completion", shells: [:bash, :zsh])
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/skyneticist/depbisect/releases/download/v0.1.3/depbisect_0.1.3_linux_amd64.tar.gz"
-      sha256 "8ed93e6cab3eae67db6af8f168ce9f364e49805eda20ba8c2a963ab58344803a"
+      url "https://github.com/skyneticist/depbisect/releases/download/v0.1.5/depbisect_0.1.5_linux_amd64.tar.gz"
+      sha256 "a3c114d5ac4c083862b9038033d4776df9e0bc977341997cbfd41ebbc617fe8e"
       define_method(:install) do
         bin.install "depbisect"
+        generate_completions_from_executable(bin/"depbisect", "completion", shells: [:bash, :zsh])
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/skyneticist/depbisect/releases/download/v0.1.3/depbisect_0.1.3_linux_arm64.tar.gz"
-      sha256 "582d1acd1a3edf8845494b04a96cec038ef686e0111191af6f7fe08c2292ebc5"
+      url "https://github.com/skyneticist/depbisect/releases/download/v0.1.5/depbisect_0.1.5_linux_arm64.tar.gz"
+      sha256 "e800e7e1c3f19776179bfb22c920712e84561ae79a496f6dedb747f33da5f26b"
       define_method(:install) do
         bin.install "depbisect"
+        generate_completions_from_executable(bin/"depbisect", "completion", shells: [:bash, :zsh])
       end
     end
   end
